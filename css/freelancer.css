@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  font-family: verdana, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Segoe WP Black,verdana, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
 p {
@@ -182,8 +182,7 @@ section h2 {
   font-size: 3em;
 }
 section.success {
-  background: #18BC9C;
-  color: white;
+  background: #FFF;
 }
 @media (max-width: 767px) {
   section {
