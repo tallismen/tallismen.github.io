@@ -91,7 +91,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-2">
-                        <p>Mijn naam is Maarten Lammers, 26 jaar afgestudeerd Informatica aan de Haagse Hogeschool in Zoetermeer en nu werkzaam als developer/teamlead bij Flitsmeister/4411. Scouting, zeilen, motorrijden en programmeren zijn mijn hobby's.</p>
+                        <p>Mijn naam is Maarten Lammers, 26 jaar afgestudeerd Informatica aan de Haagse Hogeschool in Zoetermeer en nu werkzaam als developer bij Apadmi NL. Scouting, zeilen, motorrijden en programmeren zijn mijn hobby's.</p>
                     </div>
                     <div class="col-lg-4">
                         <p>Ik vind het vervelend als iets het niet doet, dat wil ik dan graag ook zelf oplossen. Of het de ketting van mijn motor is of dat deze div teveel padding heeft. Ik los problemen graag op.</p>
@@ -213,7 +213,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            Copyright &copy; DesignLama.nl 2022
+                            Copyright &copy; DesignLama.nl <span id="copyright-year">2022</span>
                         </div>
                     </div>
                 </div>
@@ -436,6 +436,28 @@
 
         <!-- Theme JavaScript -->
         <script src="js/freelancer.min.js"></script>
+
+    <script>
+        // Update copyright year and age
+        document.addEventListener('DOMContentLoaded', function() {
+        // Update copyright year
+        const currentYear = new Date().getFullYear();
+        document.getElementById('copyright-year').textContent = currentYear;
+
+        const birthDate = new Date(1995, 7, 30); // Note: months are 0-indexed (7 = August)
+        const today = new Date();
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+
+        // Adjust age if birthday hasn't occurred yet this year
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+
+        document.getElementById('current-age').textContent = age;
+        });
+    </script>
 
     </body>
 
