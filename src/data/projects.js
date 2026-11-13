@@ -36,6 +36,68 @@ export const projects = [
     ],
   },
   {
+    id: "keurslager",
+    title: "Keurslager",
+    blurb: "Loyalty-app met spaarkaart, recepten en store locator.",
+    description:
+      "Bij Apadmi gewerkt aan de Keurslager loyalty-app: digitale spaarkaart, realtime punten, recepten, cadeaushop en store locator voor het landelijke netwerk van zelfstandige keurslagers.",
+    image: "/img/keurslager-logo.png",
+    group: "work",
+    date: "Apadmi",
+    links: [
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=nl.keurslager.app",
+      },
+      {
+        label: "Apadmi case",
+        href: "https://www.apadmi.com/work/keurslager/",
+      },
+    ],
+  },
+  {
+    id: "fokker",
+    title: "Fokker Services",
+    blurb: "Offline parts- en stock-app voor aviation repair teams.",
+    description:
+      "Bij Apadmi gewerkt aan de Fokker Services app: onderdelen zoeken en bestellen, stock en repair-flows, inclusief offline gebruik voor mechanics op de hangarvloer.",
+    image: "/img/fokker-logo.png",
+    group: "work",
+    date: "Apadmi",
+    links: [
+      {
+        label: "Apadmi case",
+        href: "https://www.apadmi.com/work/fokker-services/",
+      },
+    ],
+  },
+  {
+    id: "yoursafe",
+    title: "Yoursafe",
+    blurb: "Fintech-app voor veilige accounts, KYC en betalingen.",
+    description:
+      "Bij Apadmi gewerkt aan de Yoursafe app: digitaal bankieren met focus op privacy, onboarding met KYC, betalingen en accountbeheer voor een Electronic Money Institution.",
+    image: "/img/yoursafe-logo.png",
+    group: "work",
+    date: "Apadmi",
+    links: [
+      {
+        label: "Apadmi case",
+        href: "https://www.apadmi.com/work/yoursafe/",
+      },
+    ],
+  },
+  {
+    id: "bambook",
+    title: "Bambook",
+    blurb: "Scanner-app voor Bambook-producten en accounts.",
+    description:
+      "Bij Apadmi gewerkt aan de Bambook Scanner: Android-app om producten te scannen en te koppelen aan Bambook-accounts, inclusief premium/billing-flows.",
+    image: "/img/bambook-logo.png",
+    group: "work",
+    date: "Apadmi",
+  },
+  {
     id: "4411",
     title: "4411",
     blurb: "Android development voor de grootste parkeerapp van België.",
