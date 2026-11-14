@@ -26,7 +26,10 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+      - name: Build
+        env:
+          VITE_BIRTH_DATE: ${{ secrets.VITE_BIRTH_DATE }}
+        run: npm run build
 
       # Works when Pages source is set to "GitHub Actions"
       - uses: actions/upload-pages-artifact@v3

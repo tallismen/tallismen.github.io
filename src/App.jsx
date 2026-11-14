@@ -4,6 +4,7 @@ import Contact from "./components/Contact";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import Projects from "./components/Projects";
+import { copy } from "./data/copy.js";
 
 export default function App() {
   const [activeProjectId, setActiveProjectId] = useState(null);
@@ -11,7 +12,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#maincontent">
-        Naar inhoud
+        {copy.skipLink}
       </a>
       <Nav />
       <Hero />

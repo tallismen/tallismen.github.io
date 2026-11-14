@@ -1,80 +1,33 @@
-import { useEffect, useId, useRef } from "react";
-import { groupLabels, groupOrder, projects } from "../data/projects";
+import { copy } from "../data/copy.js";
+import {
+  groupLabels,
+  groupOrder,
+  projectsByGroup,
+  projectsById,
+} from "../data/projects";
+import { assetUrl } from "../lib/assetUrl.js";
+import ProjectDialog from "./ProjectDialog";
 
-function ProjectDialog({ project, open, onClose }) {
-  const dialogRef = useRef(null);
-  const titleId = useId();
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (open && !dialog.open) dialog.showModal();
-    if (!open && dialog.open) dialog.close();
-  }, [open]);
-
-  if (!project) return null;
-
-  return (
-    <dialog
-      ref={dialogRef}
-      className="project-dialog"
-      aria-labelledby={titleId}
-      onClose={onClose}
-      onClick={(e) => {
-        if (e.target === dialogRef.current) onClose();
-      }}
-    >
-      <div className="dialog-body">
-        <img src={project.image} alt="" width={96} height={96} />
-        <h2 id={titleId}>{project.title}</h2>
-        <p>{project.description}</p>
-        <ul className="dialog-meta">
-          {project.date ? (
-            <li>
-              Datum: <strong>{project.date}</strong>
-            </li>
-          ) : null}
-          {project.grade ? (
-            <li>
-              Cijfer: <strong>{project.grade}</strong>
-            </li>
-          ) : null}
-        </ul>
-        {project.links?.length ? (
-          <div className="dialog-links">
-            {project.links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        ) : null}
-        <button type="button" className="dialog-close" onClick={onClose}>
-          Sluiten
-        </button>
-      </div>
-    </dialog>
-  );
-}
-
+/**
+ * Portfolio grid grouped by work / own / earlier, with detail dialog.
+ * @param {{
+ *   activeId: string | null,
+ *   onOpen: (id: string) => void,
+ *   onClose: () => void
+ * }} props
+ * @returns {import('react').ReactElement}
+ */
 export default function Projects({ activeId, onOpen, onClose }) {
-  const active = projects.find((p) => p.id === activeId) ?? null;
+  const active = activeId ? (projectsById.get(activeId) ?? null) : null;
 
   return (
     <section className="section" id="portfolio">
       <div className="section-inner">
-        <h2 className="section-title">Projecten</h2>
-        <p className="section-lead">
-          Werk bij Apadmi / The Mobile Company, eigen apps, en eerdere projecten.
-        </p>
+        <h2 className="section-title">{copy.projects.title}</h2>
+        <p className="section-lead">{copy.projects.lead}</p>
 
         {groupOrder.map((group) => {
-          const items = projects.filter((p) => p.group === group);
+          const items = projectsByGroup.get(group) ?? [];
           if (!items.length) return null;
           return (
             <div
@@ -91,8 +44,8 @@ export default function Projects({ activeId, onOpen, onClose }) {
                     onClick={() => onOpen(project.id)}
                   >
                     <img
-                      src={project.image}
-                      alt=""
+                      src={assetUrl(project.image)}
+                      alt={project.imageAlt}
                       width={72}
                       height={72}
                     />
